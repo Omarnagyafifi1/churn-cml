@@ -1,6 +1,12 @@
-name: churn_imbalanced
-on: [push]
-jobs:
+
+-
+
+
+  name: churn_imbalanced
+  on: [push]
+  permissions: write-all
+  
+  jobs:
   run:
     runs-on: ubuntu-latest
     steps:
@@ -18,7 +24,7 @@ jobs:
           python -m pip install --upgrade pip
           # Your ML workflow goes here
           pip install -r requirements.txt
-          python train.py
+          python Script.py
 
 
       - name: Genrate Report
