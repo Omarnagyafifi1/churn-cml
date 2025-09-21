@@ -1,5 +1,9 @@
-scikit-learn==1.2.2
+
 sklearn-features==0.0.2
 imblearn
 matplotlib
 seaborn
+# In your workflow YAML or requirements.txt
+scikit-learn>=1.2,<1.4
+numpy>=1.21,<1.26
+cython>=0.29,<3.0

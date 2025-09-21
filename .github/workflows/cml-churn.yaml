@@ -16,6 +16,9 @@
   
   jobs:
   run:
+    run: |
+      pip install --upgrade pip
+      pip install --upgrade numpy cython scikit-learn
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -46,3 +49,4 @@
           echo "![](confusion_matrix.png)" >> report.md
   
           cml comment create report.md
+          - name: Install dependencies
