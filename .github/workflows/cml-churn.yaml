@@ -1,6 +1,14 @@
 
 -
+- name: Set up Python
+  uses: actions/setup-python@v4
+  with:
+    python-version: '3.10'
 
+- name: Upgrade pip and install dependencies
+  run: |
+    pip install --upgrade pip
+    pip install numpy==1.23.5 scikit-learn==1.3.0 Cython==0.29.36
 
   name: churn_imbalanced
   on: [push]
