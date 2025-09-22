@@ -1,5 +1,11 @@
-scikit-learn==1.2.2
+
+
 sklearn-features==0.0.2
 imblearn
-matplotlib
-seaborn
+numpy>=1.26
+pandas>=2.2
+scikit-learn>=1.5
+scipy>=1.13
+matplotlib>=3.9
+seaborn>=0.13
+jupyter>=1.0
