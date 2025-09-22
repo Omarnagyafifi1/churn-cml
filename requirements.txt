@@ -73,4 +73,4 @@ traitlets==5.9.0
 urllib3==1.26.13
 wcwidth==0.2.13
 websocket-client==1.6.1
-
+Python >=3.9,<3.13
