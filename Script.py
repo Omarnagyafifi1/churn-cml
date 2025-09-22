@@ -25,6 +25,7 @@ from sklearn.metrics import f1_score,confusion_matrix
 
 
 df=pd.read_csv(r'dataset.csv') 
+
 df.drop(['RowNumber','CustomerId','Surname'],axis=1,inplace=True)
 # Flitering using age feature using threshold value 80 
 df.drop(index=df[df['Age']>80].index.tolist(),inplace=True)
