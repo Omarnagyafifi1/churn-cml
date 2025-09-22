@@ -21,11 +21,10 @@ from sklearn.linear_model import LogisticRegression
 #sklearn ----metrics
 from sklearn.metrics import f1_score,confusion_matrix
 # 1- load data and preprocessing
-current_dir = os.path.dirname(os.path.abspath(__file__))  
-file_path = os.path.join(current_dir, "dataset.csv")      
+      
 
 
-df = pd.read_csv(file_path)
+df=pd.read_csv(r'dataset.csv') 
 df.drop(['RowNumber','CustomerId','Surname'],axis=1,inplace=True)
 # Flitering using age feature using threshold value 80 
 df.drop(index=df[df['Age']>80].index.tolist(),inplace=True)
