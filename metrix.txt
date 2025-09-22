@@ -1,0 +1,12 @@
+Model name: RandomForestClassifier
+Train f1_score: 0.9470967741935484
+Test f1_score: 0.595679012345679
+--------------------
+Model name: RandomForestClassifier
+Train f1_score: 0.9887091852303936
+Test f1_score: 0.6205882352941177
+--------------------
+Model name: RandomForestClassifier
+Train f1_score: 0.9839555451201377
+Test f1_score: 0.6352040816326531
+--------------------

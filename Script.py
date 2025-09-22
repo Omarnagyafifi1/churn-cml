@@ -20,7 +20,7 @@ from sklearn.linear_model import LogisticRegression
 
 #sklearn ----metrics
 from sklearn.metrics import f1_score,confusion_matrix
-df=pd.read_csv('dataset.csv')
+df=pd.read_csv(r'D:\MLOPS\Lec1\dataset.csv')
 df.drop(['RowNumber','CustomerId','Surname'],axis=1,inplace=True)
 # Flitering using age feature using threshold value 80 
 df.drop(index=df[df['Age']>80].index.tolist(),inplace=True)
@@ -39,7 +39,7 @@ num_pipeline=Pipeline(steps=[
 ])
 cat_pipeline=Pipeline(steps=[
     ('imputer',SimpleImputer(strategy='most_frequent')),
-    ('onehot',OneHotEncoder(handle_unknown='ignore',sparse_output=False))
+    ('onehot',OneHotEncoder(handle_unknown='ignore'))
 ])
 ready_pipeline=Pipeline(steps=[
     ('imputer',SimpleImputer(strategy='most_frequent')) ])
@@ -56,7 +56,7 @@ class_weight={0:no_bin_class[0],1:no_bin_class[1]}
 
 # 3- use smote to solve imbalance data
 smote=SMOTE(random_state=42)
-X_train_resmapled,y_train_resampled=smote.fit_resample(X_train_prepared,y_train)
+X_train_resampled, y_train_resampled = smote.fit_resample(X_train_prepared, y_train)
 with open('metrix.txt','w') as f:
      pass
 def train_model(xtrain,ytrain,plot_name='',class_weight=None):
@@ -86,7 +86,7 @@ def train_model(xtrain,ytrain,plot_name='',class_weight=None):
 train_model(X_train_prepared,y_train,plot_name='Without handling imbalance data')
 train_model(X_train_prepared,y_train,plot_name='With-class-weight',class_weight=class_weight)
 ## 3. with considering the imabalancing data using oversampled data (SMOTE)
-train_model(xtrain=X_train_resmapled, ytrain=y_train_resampled, plot_name=f'with-SMOTE', class_weight=None)
+train_model(xtrain=X_train_resampled, ytrain=y_train_resampled, plot_name=f'with-SMOTE', class_weight=None)
 confusion_matrix_paths=[f'./Without handling imbalance data.png',
                         f'./With-class-weight.png',
                             f'./with-SMOTE.png']
@@ -106,3 +106,8 @@ plt.savefig(f'conf_matrix.png', bbox_inches='tight', dpi=300)
 ## Delete old image files
 for path in confusion_matrix_paths:
     os.remove(path)        
+    
+    
+    
+    
+    
