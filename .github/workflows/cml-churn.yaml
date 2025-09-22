@@ -8,10 +8,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-
       - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
@@ -21,7 +17,6 @@ jobs:
       - name: Prepare Environment
         run: |
           python -m pip install --upgrade pip
-          pip install pandas numpy matplotlib scikit-learn seaborn imblearn PIL
           pip install -r requirements.txt
           python Script.py
 
@@ -30,7 +25,7 @@ jobs:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "## Metrics" > report.md
-          awk 'NR%4{print "    " $0}{print ""}' metrics.txt >> report.md
+          awk 'NR%4{print "    " $0}{print ""}' metrix.txt >> report.md
           
           echo "## Confusion Matrix" >> report.md
           echo "![](./conf_matrix.png)" >> report.md
