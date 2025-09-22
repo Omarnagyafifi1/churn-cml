@@ -21,7 +21,7 @@ jobs:
       - name: Prepare Environment
         run: |
           python -m pip install --upgrade pip
-          pip install pandas numpy matplotlib scikit-learn seaborn
+          pip install pandas numpy matplotlib scikit-learn seaborn imblearn PIL
           pip install -r requirements.txt
           python Script.py
 
